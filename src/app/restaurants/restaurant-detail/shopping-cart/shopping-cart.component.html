@@ -10,6 +10,7 @@
     <div class="table-responsive">
       <table class="table">
         <tbody>
+<<<<<<< Updated upstream
           <tr>
             <th style="width:60%">Cerveja:</th>
 
@@ -25,6 +26,17 @@
             <th>Frete:</th>
 
             <td class="text-right">R$ 8,00</td>
+=======
+          <tr *ngFor="let item of items()">
+            <th style="width:60%">({{item.quantity}}x) {{item.menuItem.name}}:</th>
+            <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>
+            <td class="text-right">
+              <a (click)="removeItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>              
+            </td>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
           </tr>
           <tr>
             <th>Total:</th>
@@ -37,7 +49,7 @@
   </div>
   <div class="box-footer">
     <div class="pull-right">
-      <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
+      <button (click)="clear()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
       <a href="order.html" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
     </div>
   </div>
