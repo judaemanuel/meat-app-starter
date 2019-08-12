@@ -11,9 +11,9 @@ import { ShoppingCartItem } from 'app/restaurants/restaurant-detail/shopping-car
 export class OrderComponent implements OnInit {
 
   paymentOptions: RadioOption[] = [
-    {label: 'Dinheiro', value: 'DIN'},
-    {label: 'Cartão de Débito', value: 'DEB'},
-    {label: 'Cartão Refeição', value: 'REF'},
+    { label: 'Dinheiro', value: 'DIN' },
+    { label: 'Cartão de Débito', value: 'DEB' },
+    { label: 'Cartão Refeição', value: 'REF' },
   ];
 
   constructor(
@@ -23,19 +23,19 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
   }
 
-  cartItems(){
+  cartItems() {
     return this.orderService.cartItems();
   }
 
-  increaseQty(item: ShoppingCartItem){
+  increaseQty(item: ShoppingCartItem) {
     this.orderService.increaseQty(item);
   }
 
-  decreaseQty(item: ShoppingCartItem){
+  decreaseQty(item: ShoppingCartItem) {
     this.orderService.decreaseQty(item);
   }
 
-  removeItem(item: ShoppingCartItem){
+  removeItem(item: ShoppingCartItem) {
     this.orderService.removeItem(item);
   }
 

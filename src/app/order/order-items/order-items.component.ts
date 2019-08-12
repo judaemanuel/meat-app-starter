@@ -8,24 +8,24 @@ import { ShoppingCartItem } from 'app/restaurants/restaurant-detail/shopping-car
 export class OrderItemsComponent implements OnInit {
 
   @Input() items: ShoppingCartItem[];
-  @Output() increaseQty: EventEmitter<ShoppingCartItem>;
-  @Output() decreaseQty: EventEmitter<ShoppingCartItem>;
-  @Output() removeItem: EventEmitter<ShoppingCartItem>;
+  @Output() increaseQty = new EventEmitter<ShoppingCartItem>();
+  @Output() decreaseQty = new EventEmitter<ShoppingCartItem>();
+  @Output() removeItem = new EventEmitter<ShoppingCartItem>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  emitIncreaseQty(item: ShoppingCartItem){
+  emitIncreaseQty(item: ShoppingCartItem) {
     this.increaseQty.emit(item);
   }
 
-  emitDecreaseQty(item: ShoppingCartItem){
+  emitDecreaseQty(item: ShoppingCartItem) {
     this.decreaseQty.emit(item);
   }
 
-  emitRemoveItem(item: ShoppingCartItem){
+  emitRemoveItem(item: ShoppingCartItem) {
     this.removeItem.emit(item);
   }
 

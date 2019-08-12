@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { ShoppingCartService } from "app/restaurants/restaurant-detail/shopping-cart/shopping-cart.service";
-import { ShoppingCartItem } from "app/restaurants/restaurant-detail/shopping-cart/shopping-cart-item.model";
+import { ShoppingCartService } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart.service';
+import { ShoppingCartItem } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart-item.model';
 
 @Injectable()
 export class OrderService {
@@ -10,19 +10,20 @@ export class OrderService {
         private cartService: ShoppingCartService
     ) { }
 
-    cartItems(): ShoppingCartItem[]{
+    cartItems(): ShoppingCartItem[] {
         return this.cartService.items;
     }
 
-    increaseQty(item: ShoppingCartItem){
+    increaseQty(item: ShoppingCartItem) {
         this.cartService.increaseQty(item);
     }
 
-    decreaseQty(item: ShoppingCartItem){
+    decreaseQty(item: ShoppingCartItem) {
         this.cartService.decreaseQty(item);
     }
 
-    removeItem(item: ShoppingCartItem){
+    removeItem(item: ShoppingCartItem) {
         this.cartService.removeItem(item);
     }
+
 }

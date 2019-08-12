@@ -21,4 +21,4 @@ export const ROUTES: Routes = [
         ]
     },
     { path: 'order', component: OrderComponent },
-]
+];

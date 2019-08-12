@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 
-import { RestaurantsService } from "app/restaurants/restaurants.service";
+import { RestaurantsService } from 'app/restaurants/restaurants.service';
 import { MenuItem } from '../menu-item/menu-item.model';
 
 @Component({
@@ -21,10 +21,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.menu = this.restaurantService
       .menuOfRestaurant(this.route.parent.snapshot.params['id']);
-  }
-
-  addMenuItem(item: MenuItem){
-    console.log(item);
   }
 
 }
