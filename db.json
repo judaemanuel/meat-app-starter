@@ -518,6 +518,22 @@
         }
       ],
       "id": 9
+    },
+    {
+      "name": "JUDA E C SANTOS",
+      "email": "judahemanuel@gmail.com",
+      "emailConfirmation": "judahemanuel@gmail.com",
+      "endereco": "Cj Jardim das Limeiras, 61",
+      "numero": "61",
+      "complemento": "Apto 302",
+      "paymentOption": "REF",
+      "orderItems": [
+        {
+          "quantity": 2,
+          "itemId": "cup-cake"
+        }
+      ],
+      "id": 10
     }
   ]
 }
