@@ -21,9 +21,6 @@ import { MenuItemComponent } from './restaurants/restaurant-detail/menu-item/men
 import { ShoppingCartComponent } from './restaurants/restaurant-detail/shopping-cart/shopping-cart.component';
 import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/reviews.component';
 import { ReviewComponent } from './restaurants/restaurant-detail/reviews/review/review.component';
-import { OrderComponent } from './order/order.component';
-import { OrderItemsComponent } from './order/order-items/order-items.component';
-import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { FooterComponent } from './footer/footer.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
@@ -40,9 +37,6 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     ShoppingCartComponent,
     ReviewsComponent,
     ReviewComponent,
-    OrderComponent,
-    OrderItemsComponent,
-    DeliveryCostsComponent,
     FooterComponent,
     OrderSummaryComponent,
   ],

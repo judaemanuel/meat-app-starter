@@ -534,6 +534,22 @@
         }
       ],
       "id": 10
+    },
+    {
+      "name": "JUDA E C SANTOS",
+      "email": "judahemanuel@gmail.com",
+      "emailConfirmation": "judahemanuel@gmail.com",
+      "endereco": "Cj Jardim das Limeiras, Edf. Flor da Limeira, 61_A, Apto 302",
+      "numero": "61",
+      "complemento": "Vale dos Lagos",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 4,
+          "itemId": "icestd.png"
+        }
+      ],
+      "id": 11
     }
   ]
 }
