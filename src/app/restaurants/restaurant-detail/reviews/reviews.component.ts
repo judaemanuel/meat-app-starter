@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 
-import { RestaurantsService } from "app/restaurants/restaurants.service";
+import { RestaurantsService } from 'app/restaurants/restaurants.service';
 
 @Component({
   selector: 'mt-reviews',
@@ -19,6 +19,6 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit() {
     this.reviews = this.restaurantService
-      .reviewsOfRestaurant(this.route.parent.snapshot.params['id'])    
+      .reviewsOfRestaurant(this.route.parent.snapshot.params['id']);
   }
 }
