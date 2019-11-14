@@ -9,24 +9,32 @@ import { OrderService } from 'app/order/order.service';
 import { InputComponent } from './input/input.component';
 import { RadioComponent } from './radio/radio.component';
 import { RatingComponent } from './rating/rating.component';
+import { SnackbarComponent } from './messages/snackbar/snackbar.component';
+import { NotificationService } from './messages/notification.service';
 
 @NgModule({
-    declarations:  [InputComponent, RadioComponent, RatingComponent],
+    declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
     imports: [CommonModule, FormsModule, ReactiveFormsModule],
     exports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         InputComponent,
         RadioComponent,
         RatingComponent,
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule
+        SnackbarComponent
     ]
 })
 export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [RestaurantsService, ShoppingCartService, OrderService, { provide: LOCALE_ID, useValue: 'pt-BR' }]
+            providers: [
+                RestaurantsService,
+                ShoppingCartService,
+                OrderService,
+                NotificationService,
+                { provide: LOCALE_ID, useValue: 'pt-BR' }]
         };
     }
 }
