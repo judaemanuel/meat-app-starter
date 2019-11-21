@@ -9,8 +9,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     trigger('restaurant-appeared', [
       state('ready', style({opacity: 1})),
       transition('void => ready', [
-        style({opacity: 0, transform: 'translate(0px, -10px)'}),
-        animate('200ms 0s ease-in-out')
+        style({opacity: 0, transform: 'translate(-30px, -10px)'}),
+        animate('300ms 0s ease-in-out')
       ])
     ])
   ]
