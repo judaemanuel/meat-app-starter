@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -21,6 +22,7 @@ import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/review
 import { ReviewComponent } from './restaurants/restaurant-detail/reviews/review/review.component';
 import { FooterComponent } from './footer/footer.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +39,16 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     ReviewComponent,
     FooterComponent,
     OrderSummaryComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}),
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
     SharedModule.forRoot()
   ],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,22 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import { RestaurantsService } from '../restaurants.service';
 import { Restaurant } from '../restaurant/restaurant.model';
+import { RestaurantAnimations } from '../restaurant/restaurant.animations';
 
 @Component({
   selector: 'mt-restaurant-detail',
   templateUrl: './restaurant-detail.component.html',
-  animations: [
-    trigger('restaurant-detail-appeared', [
-      state('ready', style({opacity: 1})),
-      transition('void => ready', [
-        style({opacity: 0, transform: 'translateY(-20px)'}),
-        animate('300ms 0s ease-in')
-      ])
-    ])
-  ]
+  animations: [RestaurantAnimations.restaurantDetailAppeared]
 })
 export class RestaurantDetailComponent implements OnInit {
 

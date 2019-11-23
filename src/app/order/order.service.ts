@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
+import { environment } from 'environments/environment';
+
 import { ShoppingCartService } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart.service';
 
 import { ShoppingCartItem } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart-item.model';
 import { Order } from './order.model';
-import { MEAT_API } from '../app.constants';
 
 @Injectable()
 export class OrderService {
@@ -43,7 +44,7 @@ export class OrderService {
     checkOrder(order: Order): Observable<Order> {
         const headers = new Headers();
         headers.append('Content-type', 'application/json');
-        return this.http.post(`${MEAT_API}/orders`, JSON.stringify(order), new RequestOptions({ headers: headers }))
+        return this.http.post(`${environment.api}/orders`, JSON.stringify(order), new RequestOptions({ headers: headers }))
             .map(response => response.json());
     }
 

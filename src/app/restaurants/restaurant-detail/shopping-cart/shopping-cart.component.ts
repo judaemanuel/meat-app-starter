@@ -1,38 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 import { ShoppingCartService } from './shopping-cart.service';
 
 import { MenuItem } from '../menu-item/menu-item.model';
 import { ShoppingCartItem } from './shopping-cart-item.model';
+import { RestaurantAnimations } from 'app/restaurants/restaurant/restaurant.animations';
 
 @Component({
   selector: 'mt-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  animations: [
-    trigger('cart-item-in-out', [
-      state('ready', style({ opacity: 1 })),
-      transition('void => ready', animate('300ms 0s ease-in', keyframes([
-        style({ opacity: 0, transform: 'translateX(-30px)', offset: 0 }),
-        style({ opacity: 0.4, transform: 'translateX(30px)', offset: 0.4 }),
-        style({ opacity: 0.6, transform: 'translateX(0px)', offset: 0.6 }),
-        style({ opacity: 0.8, transform: 'translateX(15px)', offset: 0.8 }),
-        style({ opacity: 1, transform: 'translateX(0px)', offset: 1 })
-      ]))),
-      transition('ready => void', animate('300ms 0s ease-out', keyframes([
-        style({ opacity: 1, transform: 'translateX(0px)', offset: 0 }),
-        style({ opacity: 0.6, transform: 'translateX(-30px)', offset: 0.8 }),
-        style({ opacity: 0, transform: 'translateX(30px)', offset: 1 })
-      ])))
-    ]),
-    trigger('shopping-cart-appeared', [
-      state('ready', style({ opacity: 1 })),
-      transition('void => ready', [
-        style({ opacity: 0, transform: 'translateY(-20px)' }),
-        animate('300ms 235ms ease-in')
-      ])
-    ])
-  ]
+  animations: [RestaurantAnimations.shoppingCartAppeared, RestaurantAnimations.cartItemInOut]
 })
 export class ShoppingCartComponent implements OnInit {
 

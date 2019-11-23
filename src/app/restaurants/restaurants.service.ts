@@ -5,8 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { environment } from 'environments/environment';
+
 import { Restaurant } from './restaurant/restaurant.model';
-import { MEAT_API } from 'app/app.constants';
 import { ErrorHandler } from 'app/app.error-handler';
 import { MenuItem } from './restaurant-detail/menu-item/menu-item.model';
 import { Review } from './restaurant-detail/reviews/review/review.model';
@@ -17,25 +18,25 @@ export class RestaurantsService {
   constructor(private http: Http) { }
 
   restaurants(): Observable<Restaurant[]> {
-    return this.http.get(`${MEAT_API}/restaurants`)
+    return this.http.get(`${environment.api}/restaurants`)
       .map(response => response.json())
       .catch(ErrorHandler.handleError);
   }
 
   restaurantById(id: string): Observable<Restaurant> {
-    return this.http.get(`${MEAT_API}/restaurants/${id}`)
+    return this.http.get(`${environment.api}/restaurants/${id}`)
       .map(response => response.json())
       .catch(ErrorHandler.handleError);
   }
 
   reviewsOfRestaurant(id: string): Observable<Review[]> {
-    return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
+    return this.http.get(`${environment.api}/restaurants/${id}/reviews`)
       .map(response => response.json())
       .catch(ErrorHandler.handleError);
   }
 
   menuOfRestaurant(id: string): Observable<MenuItem[]> {
-    return this.http.get(`${MEAT_API}/restaurants/${id}/menu`)
+    return this.http.get(`${environment.api}/restaurants/${id}/menu`)
       .map(response => response.json())
       .catch(ErrorHandler.handleError);
   }

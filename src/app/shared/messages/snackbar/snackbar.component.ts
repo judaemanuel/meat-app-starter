@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { SnackbarAnimations } from './snackbar.animations';
 import { NotificationService } from '../notification.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
@@ -11,18 +11,7 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './snackbar.component.html',
   styleUrls: ['./snackbar.component.css'],
   animations: [
-    trigger('snack-visibility', [
-      state('hidden', style({
-        opacity: 0,
-        bottom: '0px'
-      })),
-      state('visible', style({
-        opacity: 1,
-        bottom: '30px'
-      })),
-      transition('hidden => visible', animate('100ms 0s ease-in')),
-      transition('visible => hidden', animate('1000ms 0s ease-out'))
-    ])
+    SnackbarAnimations.snackVisibility
   ]
 })
 export class SnackbarComponent implements OnInit {
