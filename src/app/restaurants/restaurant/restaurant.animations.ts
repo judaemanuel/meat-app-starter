@@ -43,5 +43,17 @@ export const RestaurantAnimations: any = {
             style({ opacity: 0.6, transform: 'translateX(-30px)', offset: 0.8 }),
             style({ opacity: 0, transform: 'translateX(30px)', offset: 1 })
         ])))
+    ]),
+    toggleSearchRestaurants: trigger('toggleSearch', [
+        state('hidden', style({
+            opacity: 0,
+            'max-height': '0px'
+        })),
+        state('visible', style({
+            opacity: 1,
+            'max-height': '70px',
+            'margin-top': '20px'
+        })),
+        transition('* => *', animate('250ms 0ms ease-in-out'))
     ])
 };
