@@ -1,0 +1,10 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES5",
+        "typeRoots": [
+            "./backend/node_modules/@types"
+          ]
+    }
+}
