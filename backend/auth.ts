@@ -2,7 +2,7 @@ import { Request, Response, response } from 'express';
 import { User, users } from './users';
 import * as jwt from 'jsonwebtoken';
 
-import { config } from './config';
+import { config, returnMessages } from './config';
 
 export const handleAuth = (req: Request, res: Response) => {
     const user: User = req.body;
@@ -12,7 +12,7 @@ export const handleAuth = (req: Request, res: Response) => {
 
         res.json({ name: dbUser.name, email: dbUser.email, accessToken: token });
     } else {
-        res.status(403).json({ message: 'dados inválidos' });
+        res.status(returnMessages.unauthorized.code).json({ message: returnMessages.unauthorized.message });
     }
 }
 
@@ -30,13 +30,13 @@ export const handleAuthz = (req: Request, res: Response, next) => {
 
     if (!token) {
         res.setHeader('www-authenticate', 'Bearer token_type="JWT"');
-        res.status(401).json({ message: 'você precsa se autenticar' });
+        res.status(returnMessages.notFound.code).json({ message: returnMessages.notFound.message });
     } else {
         jwt.verify(token, config.secret, (error, decoded) => {
             if (decoded) {
                 next();
             } else {
-                response.status(403).json({ message: 'você não está autorizado a acessar esse recurso' })
+                response.status(returnMessages.forbidden.code).json({ message: returnMessages.forbidden.message });
             }
         })
     }
