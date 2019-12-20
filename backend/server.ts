@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as https from 'https';
 import { Application, Router, RequestHandler } from 'express';
 import { ParamsDictionary } from 'express-serve-static-core';
-import { handleAuth } from './auth';
+import { handleAuth, handleAuthz } from './auth';
 
 const server: Application = jsonServer.create();
 const router: Router = jsonServer.router('db.json');
@@ -16,8 +16,11 @@ server.use(middlewares);
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser)
 
-//login middleware
+// Login middleware
 server.post('/login', handleAuth);
+
+// Authorization middleware
+server.use('/orders', handleAuthz);
 
 // Use default router
 server.use(router);
