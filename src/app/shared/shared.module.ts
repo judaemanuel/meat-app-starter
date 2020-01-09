@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantsService } from 'app/restaurants/restaurants.service';
 import { ShoppingCartService } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart.service';
 import { OrderService } from 'app/order/order.service';
+import { LoginService } from 'app/security/login/login.service';
 
 import { InputComponent } from './input/input.component';
 import { RadioComponent } from './radio/radio.component';
@@ -34,6 +35,7 @@ export class SharedModule {
                 ShoppingCartService,
                 OrderService,
                 NotificationService,
+                LoginService,
                 { provide: LOCALE_ID, useValue: 'pt-BR' }]
         };
     }

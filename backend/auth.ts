@@ -25,7 +25,7 @@ function isValid(user: User): boolean {
     return dbUser !== undefined && dbUser.matches(user);
 }
 
-export const handleAuthz = (req: Request, res: Response, next) => {
+export const handleAuthz = (req: Request, res: Response, next: any) => {
     const token = extractToken(req);
 
     if (!token) {
@@ -36,7 +36,7 @@ export const handleAuthz = (req: Request, res: Response, next) => {
             if (decoded) {
                 next();
             } else {
-                response.status(returnMessages.forbidden.code).json({ message: returnMessages.forbidden.message });
+                res.status(returnMessages.forbidden.code).json({ message: returnMessages.forbidden.message });
             }
         })
     }
