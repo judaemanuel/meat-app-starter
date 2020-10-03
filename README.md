@@ -1,4 +1,4 @@
-# Meat - Angular App Starter
+# Meat - Angular App Starter 🥪🍤🥗
 
 ## 1. Passos para começar
 
@@ -142,6 +142,19 @@ Dependências dos pacotes que devem ficar em package.json:
   }
 ```
 
-## Créditos
+## Créditos 🍻
 
 Todas as imagens usadas na aplicação são pertencentes a freepik.com
+
+
+## Notes ✔
+
+- Install angular cli:
+  npm install -g @angular/cli
+
+- Install json-server:
+  npm install -g json-server
+  
+- Install nodemon:
+  
+  npm install -g nodemon

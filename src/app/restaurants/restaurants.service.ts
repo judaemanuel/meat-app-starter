@@ -8,7 +8,6 @@ import 'rxjs/add/operator/catch';
 import { environment } from 'environments/environment';
 
 import { Restaurant } from './restaurant/restaurant.model';
-import { ErrorHandler } from 'app/app.error-handler';
 import { MenuItem } from './restaurant-detail/menu-item/menu-item.model';
 import { Review } from './restaurant-detail/reviews/review/review.model';
 
