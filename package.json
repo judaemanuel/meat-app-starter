@@ -6,6 +6,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build:dev": "ng build --dev",
+    "build:qa": "ng build --qa",
+    "build:prd": "ng build --prod",
+    "build:dev:bh": "ng build --dev --bh=/meat-app/",
+    "build:qa:bh": "ng build --qa --bh=/meat-app/",
+    "build:prd:bh": "ng build --prod --bh=/meat-app/",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",

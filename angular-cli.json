@@ -36,6 +36,7 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
+        "qa": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
@@ -47,7 +48,7 @@
       "config": "./protractor.conf.js"
     }
   },
-    "lint": [
+  "lint": [
     {
       "project": "src/tsconfig.app.json"
     },
