@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
-import { User } from './user.model';
+import { NotificationService } from '../../shared/messages/notification.service';
 
 @Component({
   selector: 'mt-login',
@@ -13,21 +13,25 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private loginService: LoginService
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
-    this.loginForm = this.fb.group({
-      email: this.fb.control('', [Validators.required, Validators.email]),
-      password: this.fb.control('', [Validators.required])
-    })
+    this.loginForm = this.formBuilder.group({
+      email: this.formBuilder.control('', [Validators.required, Validators.email]),
+      password: this.formBuilder.control('', [Validators.required])
+    });
   }
 
   login() {
     this.loginService
       .login(this.loginForm.value.email, this.loginForm.value.password)
-      .subscribe(user => console.log(user));
+      .subscribe(
+        user => this.notificationService.notify(`Bem vindo(a), ${user.name}`),
+        response => this.notificationService.notify(`Falha na autenticação: ${response.error.message}`)
+      );
   }
 
 }
