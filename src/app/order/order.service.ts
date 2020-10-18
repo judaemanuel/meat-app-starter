@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { environment } from 'environments/environment';
 
+import { LoginService } from '../security/login/login.service';
 import { ShoppingCartService } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart.service';
 
 import { ShoppingCartItem } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart-item.model';
@@ -14,7 +15,8 @@ export class OrderService {
 
     constructor(
         private cartService: ShoppingCartService,
-        private http: HttpClient
+        private http: HttpClient,
+        private loginService: LoginService
     ) { }
 
     itemsValue(): number {
@@ -42,7 +44,13 @@ export class OrderService {
     }
 
     checkOrder(order: Order): Observable<Order> {
-        return this.http.post<Order>(`${environment.api}/orders`, order);
+        let headers = new HttpHeaders();
+
+        if (this.loginService.isLoggedIn()) {
+            headers = headers.set('Authorization', `Bearer ${this.loginService.user.accessToken}`);
+        }
+
+        return this.http.post<Order>(`${environment.api}/orders`, order, { headers: headers });
     }
 
 }

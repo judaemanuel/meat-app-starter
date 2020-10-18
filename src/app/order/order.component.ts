@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { RadioOption } from 'app/shared/radio/radio-option.model';
 
+import { LoginService } from '../security/login/login.service';
 import { OrderService } from './order.service';
 
 import { ShoppingCartItem } from 'app/restaurants/restaurant-detail/shopping-cart/shopping-cart-item.model';
@@ -47,14 +48,27 @@ export class OrderComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private loginService: LoginService
   ) { }
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group({
-      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      emailConfirmation: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      name: this.formBuilder.control(
+        this.loginService.isLoggedIn()
+          ? { value: this.loginService.user.name, disabled: true }
+          : ''
+        , [Validators.required, Validators.minLength(5)]),
+      email: this.formBuilder.control(
+        this.loginService.isLoggedIn()
+          ? { value: this.loginService.user.email, disabled: true }
+          : ''
+        , [Validators.required, Validators.pattern(this.emailPattern)]),
+      emailConfirmation: this.formBuilder.control(
+        this.loginService.isLoggedIn()
+          ? { value: this.loginService.user.email, disabled: true }
+          : ''
+        , [Validators.required, Validators.pattern(this.emailPattern)]),
       endereco: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       numero: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       complemento: this.formBuilder.control(''),
